@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./singup.component.css']
 })
 export class SingupComponent implements OnInit {
+emailFormControl: any;
 
   constructor() { }
 

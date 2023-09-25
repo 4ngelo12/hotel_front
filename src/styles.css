@@ -3,4 +3,32 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
+.contenedor {
+  width: min(90%, 1200px);
+  margin: 0 auto;
+}
 
+.contenedor-img {
+  margin: 0 .7rem;
+  border-radius: .4rem .4rem 0 0;
+}
+
+@media (min-width: 768px) {
+  .contenedor-img {
+    border-radius: .4rem 0 0 .4rem;
+  }
+}
+
+.registro-img {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .registro-img {
+    display: block;
+  }
+}
+
+.btn-text {
+  padding: 0 4rem;
+}
