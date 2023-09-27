@@ -1,55 +1,71 @@
-<div class="contenedor">
-  <div class="py-5">
-    <div class=" card">
-      <div class="row justify-content-center align-items-center">
-        <div class="col bg-primary contenedor-img">
-          <img class="mx-auto d-block py-3" src="../../../assets/img/logo.png" alt="">
+<div class="centrar">
+  <div class="card">
+    <div class="registro">
+      <div class="form-registro">
+        <div class="bg-img contenedor-img">
+          <img class="img-logo block-centrado" src="../../../assets/img/logo.png" alt="">
           <img class="img-fluid py-3 registro-img" src="../../../assets/img/registro.png" alt="">
         </div>
-        <div class="col-8 ms-3 me-5 my-5">
-          <form action="">
-            <legend class="mb-4">
+
+        <div class="contenedor-form">
+          <form action="" class="formulario">
+            <legend class="formulario-legend">
               Registrar sus Datos
             </legend>
 
-            <div class="row">
-              <mat-form-field class="w-100 col">
+            <div class="formulario-inputs">
+              <mat-form-field class="input">
                 <mat-label>Nombre:</mat-label>
-                <input matInput type="text" placeholder="Ejm. Miguel">
+                <input class="eja" matInput type="text" placeholder="Ejm. Miguel">
                 <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="w-100 col">
+              <mat-form-field class="input">
                 <mat-label>Apellido:</mat-label>
                 <input matInput type="text" placeholder="Ejm. Castillo">
                 <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="w-100">
+              <mat-form-field class="input">
                 <mat-label>Email:</mat-label>
                 <input matInput type="email" placeholder="Ejm. pat@example.com">
                 <mat-icon matSuffix>mail</mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="w-100 ">
+              <mat-form-field class="input">
+                <mat-label>Fecha de Nacimiento:</mat-label>
+                <input matInput type="date">
+                <mat-icon matSuffix>calendar</mat-icon>
+              </mat-form-field>
+
+              <mat-form-field>
+                <mat-label>Favorite food</mat-label>
+                <mat-select name="food">
+                  <mat-option>
+                    valor
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field>
                 <mat-label>Núm de Documento:</mat-label>
                 <input matInput type="number" min="1" placeholder="Ejm. 987456321452">
                 <mat-icon matSuffix>badge</mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="w-100 ">
+              <mat-form-field class="input">
                 <mat-label>Núm Télefono:</mat-label>
                 <input matInput type="tel" placeholder="Ejm. 987456312">
                 <mat-icon matSuffix>contact_phone</mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="w-100 col">
+              <mat-form-field>
                 <mat-label>Contraseña:</mat-label>
                 <input matInput type="text" placeholder="*********">
                 <mat-icon matSuffix>password</mat-icon>
               </mat-form-field>
 
-              <mat-form-field class="w-100 col">
+              <mat-form-field>
                 <mat-label>Repetir Contraseña:</mat-label>
                 <input matInput type="text" placeholder="*********">
                 <mat-icon matSuffix>password</mat-icon>
