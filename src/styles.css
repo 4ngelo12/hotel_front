@@ -1,7 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
 
 .contenedor {
   width: min(90%, 1200px);
@@ -13,7 +20,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   border-radius: .4rem .4rem 0 0;
 }
 
-@media (min-width: 768px) {
+/*Registrar*/
+
+@media (min-width: 992px) {
   .contenedor-img {
     border-radius: .4rem 0 0 .4rem;
   }
@@ -25,10 +34,26 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 @media (min-width: 768px) {
   .registro-img {
+    margin: 0 auto;
     display: block;
   }
 }
 
+.btn-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .btn-form {
+    flex-direction: row;
+    justify-content: start;
+    gap: 2rem;
+  }
+}
+
 .btn-text {
-  padding: 0 4rem;
+  padding: 0 3.5rem;
 }
