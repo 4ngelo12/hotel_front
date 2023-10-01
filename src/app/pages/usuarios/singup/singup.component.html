@@ -4,11 +4,11 @@
       <div class="form-registro">
         <div class="bg-img contenedor-img">
           <img class="img-logo block-centrado" src="../../../assets/img/logo.png" alt="">
-          <img class="img-fluid py-3 registro-img" src="../../../assets/img/registro.png" alt="">
+          <img class="img-fluid registro-img" src="../../../assets/img/registro.png" alt="">
         </div>
 
         <div class="contenedor-form">
-          <form action="" class="formulario">
+          <form (ngSubmit)="formSubmit()" class="formulario">
             <legend class="formulario-legend">
               Registrar sus Datos
             </legend>
@@ -16,58 +16,65 @@
             <div class="formulario-inputs">
               <mat-form-field class="input">
                 <mat-label>Nombre:</mat-label>
-                <input class="eja" matInput type="text" placeholder="Ejm. Miguel">
+                <input required matInput type="text" name="nombre" [(ngModel)]="usuario.nombre"
+                  placeholder="Ejm. Miguel">
                 <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>
 
               <mat-form-field class="input">
                 <mat-label>Apellido:</mat-label>
-                <input matInput type="text" placeholder="Ejm. Castillo">
+                <input required matInput type="text" name="apellido" [(ngModel)]="usuario.apellido"
+                  placeholder="Ejm. Castillo">
                 <mat-icon matSuffix>person</mat-icon>
               </mat-form-field>
 
               <mat-form-field class="input">
                 <mat-label>Email:</mat-label>
-                <input matInput type="email" placeholder="Ejm. pat@example.com">
+                <input required matInput name="email" [(ngModel)]="usuario.email" type="email"
+                  placeholder="Ejm. pat@example.com">
+                <mat-hint>El correo debe ser único</mat-hint>
                 <mat-icon matSuffix>mail</mat-icon>
               </mat-form-field>
 
               <mat-form-field class="input">
                 <mat-label>Fecha de Nacimiento:</mat-label>
-                <input matInput type="date">
+                <input required matInput type="date" name="fechaNacimiento" [(ngModel)]="usuario.fechaNacimiento">
                 <mat-icon matSuffix>calendar</mat-icon>
               </mat-form-field>
 
               <mat-form-field>
-                <mat-label>Favorite food</mat-label>
-                <mat-select name="food">
-                  <mat-option>
-                    valor
+                <mat-label>Tipo Documento</mat-label>
+                <mat-select required name="tipoDocumento" [(ngModel)]="usuario.tipoDocumento">
+                  <mat-option *ngFor="let i of tipoDocumento" [value]="i.value">
+                    {{i.name}}
                   </mat-option>
                 </mat-select>
               </mat-form-field>
 
               <mat-form-field>
                 <mat-label>Núm de Documento:</mat-label>
-                <input matInput type="number" min="1" placeholder="Ejm. 987456321452">
+                <input required matInput type="number" name="documento" [(ngModel)]="usuario.documento" min="1"
+                  placeholder="Ejm. 987456321452">
                 <mat-icon matSuffix>badge</mat-icon>
               </mat-form-field>
 
               <mat-form-field class="input">
                 <mat-label>Núm Télefono:</mat-label>
-                <input matInput type="tel" placeholder="Ejm. 987456312">
+                <input required matInput type="tel" name="telefono" [(ngModel)]="usuario.telefono"
+                  placeholder="Ejm. 987456312">
                 <mat-icon matSuffix>contact_phone</mat-icon>
               </mat-form-field>
 
               <mat-form-field>
                 <mat-label>Contraseña:</mat-label>
-                <input matInput type="text" placeholder="*********">
+                <input required matInput type="text" name="password" [(ngModel)]="usuario.password"
+                  placeholder="*********">
                 <mat-icon matSuffix>password</mat-icon>
               </mat-form-field>
 
               <mat-form-field>
                 <mat-label>Repetir Contraseña:</mat-label>
-                <input matInput type="text" placeholder="*********">
+                <input required matInput type="text" placeholder="*********">
                 <mat-icon matSuffix>password</mat-icon>
               </mat-form-field>
             </div>
@@ -78,7 +85,7 @@
                 <span class="btn-text">Registrar</span>
               </button>
 
-              <button mat-raised-button color="warn">
+              <button type="button" mat-raised-button color="warn" [routerLink]="['/']" routerLinkActive="router-link-active">
                 <mat-icon>arrow_back</mat-icon>
                 <span class="btn-text">Regresar</span>
               </button>

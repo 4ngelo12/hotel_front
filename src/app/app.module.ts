@@ -5,23 +5,26 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { CompartidoModule } from './compartido/compartido.module';
-import { SingupComponent } from './pages/singup/singup.component';
-import { LoginComponent } from './pages/login/login.component';
 import { AppRouterModule } from './app-router.module';
+import { UsuariosModule } from './pages/usuarios/usuarios.module';
+import { HabitacionesModule } from './pages/habitaciones/habitaciones.module';
 import { MaterialModule } from './material/material.module';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SingupComponent,
-    LoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     CompartidoModule,
-    AppRouterModule,
-    MaterialModule
+    MaterialModule,
+    HttpClientModule,
+    UsuariosModule,
+    HabitacionesModule,
+    AppRouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

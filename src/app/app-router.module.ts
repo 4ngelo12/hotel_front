@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { SingupComponent } from './pages/singup/singup.component';
+import { LoginComponent } from './pages/usuarios/login/login.component';
+import { SingupComponent } from './pages/usuarios/singup/singup.component';
+import { HabitacionesComponent } from './pages/habitaciones/habitaciones/habitaciones.component';
 
 const routes: Routes = [
   {
@@ -10,6 +11,9 @@ const routes: Routes = [
   },
   {
     path: 'register', component: SingupComponent, pathMatch: 'full'
+  },
+  {
+    path: 'habitaciones', component: HabitacionesComponent, pathMatch: 'full'
   },
   {
     path: '**', redirectTo: ''
