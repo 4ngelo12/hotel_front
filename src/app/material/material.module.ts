@@ -12,6 +12,9 @@ import { MatCardModule } from '@angular/material/card';
 import { NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [],
@@ -28,7 +31,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
     MatCardModule,
     NgIf,
     FormsModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSidenavModule
   ]
 })
 export class MaterialModule { }

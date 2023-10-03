@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Usuario } from '../interfaces/Usuario';
+import { IUsuario } from '../interfaces/IUsuario';
 import { UserService } from 'src/app/services/user.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import Swal from 'sweetalert2';
@@ -12,14 +12,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./singup.component.css']
 })
 export class SingupComponent implements OnInit {
-  formRegistro: FormGroup;
 
   tipoDocumento = [
     { value: 'DNI', name: 'DNI' },
-    { value: 'CARNET_DE_EXTRANJERIA', name: 'Carnet de Extranjeria' }
+    { value: 'CARNET', name: 'Carnet de Extranjeria' }
   ];
 
-  usuario: Usuario = {
+  usuario: IUsuario = {
     nombre: '',
     apellido: '',
     email: '',
@@ -32,11 +31,6 @@ export class SingupComponent implements OnInit {
   };
 
   constructor(private userService: UserService, private router: Router, private snack: MatSnackBar) {
-    this.formRegistro = new FormGroup({
-      nombre: new FormControl('', [Validators.required, Validators.minLength(3)]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      // Agrega otros campos y validadores según sea necesario
-    });
   }
 
   ngOnInit(): void {

@@ -2,3 +2,10 @@
   <mat-label>Favorite food</mat-label>
   <input matInput placeholder="Ex. Pizza" value="Sushi">
 </mat-form-field>
+
+<mat-form-field>
+  <mat-label>Choose a date</mat-label>
+  <input matInput [matDatepicker]="picker">
+  <mat-hint>MM/DD/YYYY</mat-hint>
+  <mat-datepicker #picker></mat-datepicker>
+</mat-form-field>

@@ -1,97 +1,97 @@
-<div class="centrar">
+<div class="espaciado">
   <div class="card">
-    <div class="registro">
-      <div class="form-registro">
-        <div class="bg-img contenedor-img">
-          <img class="img-logo block-centrado" src="../../../assets/img/logo.png" alt="">
-          <img class="img-fluid registro-img" src="../../../assets/img/registro.png" alt="">
-        </div>
+    <div class="form">
+      <div class="bg-img w-100 contenedor-img f">
+        <img class="img-logo block-centrado" src="../../../assets/img/logo.png" alt="">
+        <img class="img-fluid registro-img" src="../../../assets/img/registro.png" alt="">
+      </div>
 
-        <div class="contenedor-form">
-          <form (ngSubmit)="formSubmit()" class="formulario">
-            <legend class="formulario-legend">
-              Registrar sus Datos
-            </legend>
+      <div class="contenedor-form-registro">
+        <form (ngSubmit)="formSubmit()" class="formulario formulario-registro">
+          <legend class="formulario-legend">
+            Registrar sus Datos
+          </legend>
 
-            <div class="formulario-inputs">
-              <mat-form-field class="input">
-                <mat-label>Nombre:</mat-label>
-                <input required matInput type="text" name="nombre" [(ngModel)]="usuario.nombre"
-                  placeholder="Ejm. Miguel">
-                <mat-icon matSuffix>person</mat-icon>
-              </mat-form-field>
+          <div class="formulario-inputs">
+            <mat-form-field class="input">
+              <mat-label>Nombre:</mat-label>
+              <input required matInput type="text" name="nombre" [(ngModel)]="usuario.nombre" placeholder="Ejm. Miguel">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
 
-              <mat-form-field class="input">
-                <mat-label>Apellido:</mat-label>
-                <input required matInput type="text" name="apellido" [(ngModel)]="usuario.apellido"
-                  placeholder="Ejm. Castillo">
-                <mat-icon matSuffix>person</mat-icon>
-              </mat-form-field>
+            <mat-form-field class="input">
+              <mat-label>Apellido:</mat-label>
+              <input required matInput type="text" name="apellido" [(ngModel)]="usuario.apellido"
+                placeholder="Ejm. Castillo">
+              <mat-icon matSuffix>person</mat-icon>
+            </mat-form-field>
 
-              <mat-form-field class="input">
-                <mat-label>Email:</mat-label>
-                <input required matInput name="email" [(ngModel)]="usuario.email" type="email"
-                  placeholder="Ejm. pat@example.com">
-                <mat-hint>El correo debe ser único</mat-hint>
-                <mat-icon matSuffix>mail</mat-icon>
-              </mat-form-field>
+            <mat-form-field class="input">
+              <mat-label>Email:</mat-label>
+              <input required matInput name="email" [(ngModel)]="usuario.email" type="email"
+                placeholder="Ejm. pat@example.com">
+              <mat-hint>El correo debe ser único</mat-hint>
+              <mat-icon matSuffix>mail</mat-icon>
+            </mat-form-field>
 
-              <mat-form-field class="input">
-                <mat-label>Fecha de Nacimiento:</mat-label>
-                <input required matInput type="date" name="fechaNacimiento" [(ngModel)]="usuario.fechaNacimiento">
-                <mat-icon matSuffix>calendar</mat-icon>
-              </mat-form-field>
+            <mat-form-field class="input">
+              <mat-label>Fecha de Nacimiento:</mat-label>
+              <input matInput [matDatepicker]="picker" name="fechaNacimiento" [(ngModel)]="usuario.fechaNacimiento">
+              <mat-hint>MM/DD/YYYY</mat-hint>
+              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
 
-              <mat-form-field>
-                <mat-label>Tipo Documento</mat-label>
-                <mat-select required name="tipoDocumento" [(ngModel)]="usuario.tipoDocumento">
-                  <mat-option *ngFor="let i of tipoDocumento" [value]="i.value">
-                    {{i.name}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
+            <mat-form-field>
+              <mat-label>Tipo Documento</mat-label>
+              <mat-select required name="tipoDocumento" [(ngModel)]="usuario.tipoDocumento">
+                <mat-option *ngFor="let i of tipoDocumento" [value]="i.value">
+                  {{i.name}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
 
-              <mat-form-field>
-                <mat-label>Núm de Documento:</mat-label>
-                <input required matInput type="number" name="documento" [(ngModel)]="usuario.documento" min="1"
-                  placeholder="Ejm. 987456321452">
-                <mat-icon matSuffix>badge</mat-icon>
-              </mat-form-field>
+            <mat-form-field>
+              <mat-label>Núm de Documento:</mat-label>
+              <input required matInput type="number" name="documento" [(ngModel)]="usuario.documento" min="1"
+                placeholder="Ejm. 987456321452">
+              <mat-icon matSuffix>badge</mat-icon>
+            </mat-form-field>
 
-              <mat-form-field class="input">
-                <mat-label>Núm Télefono:</mat-label>
-                <input required matInput type="tel" name="telefono" [(ngModel)]="usuario.telefono"
-                  placeholder="Ejm. 987456312">
-                <mat-icon matSuffix>contact_phone</mat-icon>
-              </mat-form-field>
+            <mat-form-field class="input">
+              <mat-label>Núm Télefono:</mat-label>
+              <input required matInput type="tel" name="telefono" [(ngModel)]="usuario.telefono"
+                placeholder="Ejm. 987456312">
+              <mat-icon matSuffix>contact_phone</mat-icon>
+            </mat-form-field>
 
-              <mat-form-field>
-                <mat-label>Contraseña:</mat-label>
-                <input required matInput type="text" name="password" [(ngModel)]="usuario.password"
-                  placeholder="*********">
-                <mat-icon matSuffix>password</mat-icon>
-              </mat-form-field>
+            <mat-form-field>
+              <mat-label>Contraseña:</mat-label>
+              <input required matInput type="password" name="password" [(ngModel)]="usuario.password"
+                placeholder="*********">
+              <mat-icon matSuffix>password</mat-icon>
+            </mat-form-field>
 
-              <mat-form-field>
-                <mat-label>Repetir Contraseña:</mat-label>
-                <input required matInput type="text" placeholder="*********">
-                <mat-icon matSuffix>password</mat-icon>
-              </mat-form-field>
-            </div>
+            <mat-form-field>
+              <mat-label>Repetir Contraseña:</mat-label>
+              <input required matInput type="password" placeholder="*********">
+              <mat-icon matSuffix>password</mat-icon>
+            </mat-form-field>
+          </div>
 
-            <div class="btn-form mt-3">
-              <button mat-raised-button color="primary">
-                <mat-icon>person_add</mat-icon>
-                <span class="btn-text">Registrar</span>
-              </button>
+          <div class="btn-form">
+            <button mat-raised-button color="primary">
+              <mat-icon>person_add</mat-icon>
+              <span class="btn-text">Registrar</span>
+            </button>
 
-              <button type="button" mat-raised-button color="warn" [routerLink]="['/']" routerLinkActive="router-link-active">
-                <mat-icon>arrow_back</mat-icon>
-                <span class="btn-text">Regresar</span>
-              </button>
-            </div>
-          </form>
-        </div>
+            <button type="button" mat-raised-button color="warn" [routerLink]="['/']"
+              routerLinkActive="router-link-active">
+              <mat-icon>arrow_back</mat-icon>
+              <span class="btn-text">Regresar</span>
+            </button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
