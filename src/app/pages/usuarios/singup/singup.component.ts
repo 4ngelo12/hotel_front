@@ -57,7 +57,6 @@ export class SingupComponent implements OnInit {
           }).then(() => this.router.navigate(['/']));
 
       }, error => {
-        console.log(error);
         this.snack.open(error.error[0].error, 'Aceptar', {
           duration: 5000
         });

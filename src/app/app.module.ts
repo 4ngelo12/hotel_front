@@ -5,10 +5,11 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CompartidoModule } from './compartido/compartido.module';
 import { MaterialModule } from './material/material.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UsuariosModule } from './pages/usuarios/usuarios.module';
 import { HabitacionesModule } from './pages/habitaciones/habitaciones.module';
 import { AppRouterModule } from './app-router.module';
+import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
 
 
 @NgModule({
@@ -25,7 +26,14 @@ import { AppRouterModule } from './app-router.module';
     HabitacionesModule,
     AppRouterModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptorInterceptor,
+      multi: true,
+    },
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -6,13 +6,26 @@ import {
   HttpInterceptor
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class JwtInterceptorInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private router : Router) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    return next.handle(request);
+    const token = localStorage.getItem('token');
+    let req = request;
+    if (token) {
+      req = request.clone({
+        setHeaders: {
+          authorization: `Bearer ${token}`
+        }
+      });
+    }
+
+    const headers = req.headers;
+    console.log('Headers de la solicitud:', headers);
+    return next.handle(req);
   }
 }

@@ -39,15 +39,22 @@ export class LoginComponent implements OnInit {
     }
 
     this.userService.login(this.usuario).subscribe(
-      (data:any) => {
+      (data: any) => {
         console.log(data.jwTtoken);
         this.userService.loginUser(data.jwTtoken);
+        this.userService.getCurrentUser().subscribe(
+          (user: any) => {
+            this.userService.setUser(user);
+          }
+        );
         //this.router.navigate(['/habitaciones']);
       }, error => {
         console.log(error);
-        this.snack.open("El usuario o la contraseña no es correcto", 'Aceptar', {
-          duration: 10000
-        });
+        this.snack.open(
+          "El usuario o la contraseña no es correcto", 'Aceptar',
+          {
+            duration: 10000
+          });
       }
     );
   }

@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/usuarios/login/login.component';
 import { SingupComponent } from './pages/usuarios/singup/singup.component';
 import { HabitacionesComponent } from './pages/habitaciones/habitaciones/habitaciones.component';
+import { UserGuardGuard } from './user-guard.guard';
 
 const routes: Routes = [
   {
@@ -13,7 +14,7 @@ const routes: Routes = [
     path: 'register', component: SingupComponent, pathMatch: 'full'
   },
   {
-    path: 'habitaciones', component: HabitacionesComponent, pathMatch: 'full'
+    path: 'habitaciones', component: HabitacionesComponent, pathMatch: 'full', canActivate: [UserGuardGuard]
   },
   {
     path: '**', redirectTo: ''
