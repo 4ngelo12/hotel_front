@@ -7,9 +7,9 @@ import { CompartidoModule } from './compartido/compartido.module';
 import { MaterialModule } from './material/material.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { UsuariosModule } from './pages/usuarios/usuarios.module';
-import { HabitacionesModule } from './pages/habitaciones/habitaciones.module';
 import { AppRouterModule } from './app-router.module';
 import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
+import { HomeModule } from './pages/home/home.module';
 
 
 @NgModule({
@@ -23,8 +23,9 @@ import { JwtInterceptorInterceptor } from './jwt-interceptor.interceptor';
     MaterialModule,
     HttpClientModule,
     UsuariosModule,
-    HabitacionesModule,
-    AppRouterModule
+    HomeModule,
+    AppRouterModule,
+    CompartidoModule
   ],
   providers: [
     {

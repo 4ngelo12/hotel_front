@@ -54,7 +54,7 @@ export class SingupComponent implements OnInit {
             title: 'Usuario registrado',
             text: 'Usuario registrado con éxito',
             icon: 'success',
-          }).then(() => this.router.navigate(['/']));
+          }).then(() => this.router.navigate(['/login']));
 
       }, error => {
         this.snack.open(error.error[0].error, 'Aceptar', {

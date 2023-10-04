@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppRouterModule } from 'src/app/app-router.module';
 
 
+
 @NgModule({
   declarations: [
     SingupComponent,

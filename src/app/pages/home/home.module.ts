@@ -4,6 +4,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { MaterialModule } from 'src/app/material/material.module';
 import { UserService } from 'src/app/services/user.service';
 import { HabitacionesRoutingModule } from './habitaciones/habitaciones-routing.module';
+import { HabitacionesModule } from './habitaciones/habitaciones.module';
 
 
 
@@ -14,6 +15,7 @@ import { HabitacionesRoutingModule } from './habitaciones/habitaciones-routing.m
   imports: [
     CommonModule,
     MaterialModule,
+    HabitacionesModule,
     HabitacionesRoutingModule
   ],
   exports: [

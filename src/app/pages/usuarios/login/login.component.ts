@@ -40,11 +40,20 @@ export class LoginComponent implements OnInit {
 
     this.userService.login(this.usuario).subscribe(
       (data: any) => {
-        console.log(data.jwTtoken);
         this.userService.loginUser(data.jwTtoken);
         this.userService.getCurrentUser().subscribe(
           (user: any) => {
             this.userService.setUser(user);
+
+            if (this.userService.getUserRole() == 'ADMIN') {
+              console.log('ADMIN');
+            } else if (this.userService.getUserRole() == 'EMPLEADO') {
+              console.log('EMPLEADO');
+            } else if (this.userService.getUserRole() == 'HUESPED') {
+              console.log('HUESPED');
+            }
+
+            this.router.navigate(['/home']);
           }
         );
         //this.router.navigate(['/habitaciones']);

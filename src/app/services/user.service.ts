@@ -45,11 +45,6 @@ export class UserService {
     return true;
   }
 
-  //obtenemos el token
-  public getToken() {
-    return localStorage.getItem('token');
-  }
-
   public setUser(user: any) {
     localStorage.setItem('user', JSON.stringify(user));
   }

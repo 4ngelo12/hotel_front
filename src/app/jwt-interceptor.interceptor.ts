@@ -24,8 +24,6 @@ export class JwtInterceptorInterceptor implements HttpInterceptor {
       });
     }
 
-    const headers = req.headers;
-    console.log('Headers de la solicitud:', headers);
     return next.handle(req);
   }
 }

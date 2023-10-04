@@ -3,21 +3,25 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './pages/usuarios/login/login.component';
 import { SingupComponent } from './pages/usuarios/singup/singup.component';
-import { HabitacionesComponent } from './pages/habitaciones/habitaciones/habitaciones.component';
 import { UserGuardGuard } from './user-guard.guard';
+import { PrincipalComponent } from './pages/home/principal/principal.component';
 
 const routes: Routes = [
   {
-    path: '', component: LoginComponent, pathMatch: 'full'
+    path: 'login', component: LoginComponent, pathMatch: 'full'
   },
   {
     path: 'register', component: SingupComponent, pathMatch: 'full'
   },
   {
-    path: 'habitaciones', component: HabitacionesComponent, pathMatch: 'full', canActivate: [UserGuardGuard]
+    path: 'home', component: PrincipalComponent, pathMatch: 'full', canActivate: [UserGuardGuard]
   },
   {
-    path: '**', redirectTo: ''
+    path: 'home/habitaciones', loadChildren: () => import('./pages/home/habitaciones/habitaciones.module')
+    .then(m => m.HabitacionesModule), canActivate: [UserGuardGuard]
+  },
+  {
+    path: '**', redirectTo: 'home', pathMatch: 'full'
   }
 ];
 

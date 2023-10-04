@@ -1,0 +1,9 @@
+<div *ngIf="isTrue" class="sidebar">
+  <h2><a [routerLink]="['/home']" routerLinkActive="router-link-active" >Hotel Alura</a></h2>
+
+  <div class="sidebar-enlaces">
+    <button mat-raised-button color="primary" routerLink="/home/reservas">Reservas</button>
+    <button mat-raised-button color="primary" routerLink="/home/habitaciones">Habitaciones</button>
+    <button mat-raised-button color="primary" (click)="logout()">Cerrar Sesión</button>
+  </div>
+</div>

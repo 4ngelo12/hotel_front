@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HabitacionesService } from 'src/app/services/habitaciones.service';
 
 @Component({
   selector: 'app-listar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarComponent implements OnInit {
 
-  constructor() { }
+
+  constructor(private habitacionService: HabitacionesService) { }
 
   ngOnInit(): void {
+    this.habitacionService.getHabitaciones();
   }
 
+  get habitaciones() {
+    return this.habitacionService.resultados;
+  }
 }
