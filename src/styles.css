@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
-
 html,
 body {
   height: 100%;
@@ -14,21 +13,21 @@ body {
 .navegacion-principal {
   display: flex;
   flex-direction: column;
+  gap: 2.5rem;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 992px) {
   .navegacion-principal {
     flex-direction: row;
+    gap: 2rem;
     justify-content: space-between;
     align-items: center;
-    height: 100%;
   }
 }
 
 .contenedor {
   width: min(90%, 75rem);
   margin: 0 auto;
-  overflow-x: hidden;
 }
 
 /*Utilidades*/
@@ -273,15 +272,15 @@ a {
   text-align: center;
 }
 
+@media (min-width: 992px) {
+  .sidebar {
+    height: 67.5rem;
+  }
+}
+
 .sidebar h2 {
   padding: 3rem 0 1.25rem;
   font-size: 2rem;
-}
-
-@media (min-width: 768px) {
-  .sidebar {
-    height: 100vh;
-  }
 }
 
 .sidebar-enlaces {
@@ -300,8 +299,59 @@ a {
 
 /*Habitaciones*/
 
+.habitaciones-titulo {
+  margin-top: 1.25rem;
+}
+
 .habitaciones {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-direction: row;
   gap: 2rem;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  align-content: stretch;
+  align-items: stretch;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.habitacion {
+  width: 18rem;
+}
+
+@media (min-width: 992px) {
+  .habitacion {
+    width: 13.5rem;
+    height: 15rem;
+  }
+}
+
+.habitacion-texto {
+  margin: 1rem 0 0 1rem;
+}
+
+.habitacion-texto p {
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.habitacion-datos {
+  display: flex;
+  gap: 2rem;
+}
+
+.habitacion-datos p {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.btn-habitacion {
+  margin: 0 1rem;
+}
+
+.btn-habitacion span {
+  padding: 1rem;
 }

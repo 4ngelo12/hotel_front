@@ -17,6 +17,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatNativeDateModule,
     MatSidenavModule,
     MatMenuModule,
-    MatDividerModule
+    MatDividerModule,
+    MatPaginatorModule
   ]
 })
 export class MaterialModule { }

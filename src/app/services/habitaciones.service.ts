@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders  } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baserUrl from './helper';
 import { Content, Habitaciones } from '../pages/home/habitaciones/interfaces/IHabitaciones';
@@ -9,15 +9,17 @@ import { Content, Habitaciones } from '../pages/home/habitaciones/interfaces/IHa
 })
 export class HabitacionesService {
   resultados: Content[] = [];
+  size: number = 0;
 
   constructor(private http: HttpClient) { }
 
   getHabitaciones() {
     //return this.http.get(`${baserUrl}/habitaciones`);
-    this.http.get<Habitaciones>(`${baserUrl}/habitaciones`)
+    this.http.get<Habitaciones>(`${baserUrl}/habitaciones?page=0`)
       .subscribe(response => {
         this.resultados = response.content;
-        console.log(this.resultados);
+        this.size = response.size;
+        console.log(response.size);
       });
   }
 }

@@ -9,7 +9,7 @@ import { UserService } from 'src/app/services/user.service';
 export class NavbarComponent implements OnInit {
 
   isTrue?: boolean;
-  tokenStr: any = localStorage.getItem('token');
+  token = localStorage.getItem('token');
   constructor(private userService : UserService) { }
 
   public logout(){
@@ -18,10 +18,9 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.tokenStr == undefined || this.tokenStr == '' || this.tokenStr == null) {
-      this.isTrue = false;
-    } else {
+    if (this.token) {
       this.isTrue = true;
+      console.log(this.isTrue);
     }
   }
 
