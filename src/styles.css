@@ -274,7 +274,7 @@ a {
 
 @media (min-width: 992px) {
   .sidebar {
-    height: 67.5rem;
+    height: 100vh;
   }
 }
 
@@ -296,8 +296,11 @@ a {
   font-size: 0.938rem;
 }
 
-
 /*Habitaciones*/
+
+.habitacion-screen {
+  height: 85vh;
+}
 
 .habitaciones-titulo {
   margin-top: 1.25rem;
@@ -317,12 +320,13 @@ a {
 
 .habitacion {
   width: 18rem;
+  height: 13rem;
 }
 
 @media (min-width: 992px) {
   .habitacion {
     width: 13.5rem;
-    height: 15rem;
+    height: 14rem;
   }
 }
 
@@ -350,6 +354,10 @@ a {
 
 .btn-habitacion {
   margin: 0 1rem;
+}
+
+.btn-habitacion button {
+  width: 100%;
 }
 
 .btn-habitacion span {

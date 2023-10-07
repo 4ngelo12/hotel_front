@@ -1,11 +1,11 @@
-<div>
+<div class="habitacion-screen">
   <div class="habitaciones-titulo">
     <h1>Habitaciones</h1>
   </div>
   <hr>
 
   <div class="habitaciones">
-    <div *ngFor="let item of habitaciones" class="card-habitaciones">
+    <div *ngFor="let item of habitaciones | paginate: { itemsPerPage: 8, currentPage: page}" class="card-habitaciones">
       <mat-card class="habitacion">
         <mat-card-header>
           <mat-card-title>{{item.numero}}</mat-card-title>
@@ -20,14 +20,14 @@
           </div>
         </mat-card-content>
         <div class="btn-habitacion">
-          <button  mat-stroked-button color="primary" >Registrar Reserva</button>
+          <button mat-stroked-button color="primary">Registrar Reserva</button>
         </div>
         <mat-card-footer>
         </mat-card-footer>
       </mat-card>
     </div>
   </div>
-
-  <mat-paginator [length]="100"  [pageSize]="12" aria-label="Select page">
-  </mat-paginator>
 </div>
+
+<pagination-controls (pageChange)="page = $event" [maxSize]=4 previousLabel="Anterior"
+  nextLabel="Siguiente"></pagination-controls>

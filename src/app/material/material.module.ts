@@ -17,7 +17,7 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
-import {MatPaginatorModule} from '@angular/material/paginator';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 @NgModule({
@@ -41,7 +41,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     MatSidenavModule,
     MatMenuModule,
     MatDividerModule,
-    MatPaginatorModule
+    NgxPaginationModule
   ]
 })
 export class MaterialModule { }
