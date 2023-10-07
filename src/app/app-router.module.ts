@@ -18,7 +18,11 @@ const routes: Routes = [
   },
   {
     path: 'home/habitaciones', loadChildren: () => import('./pages/home/habitaciones/habitaciones.module')
-    .then(m => m.HabitacionesModule), canActivate: [UserGuardGuard]
+      .then(m => m.HabitacionesModule), canActivate: [UserGuardGuard]
+  },
+  {
+    path: 'home/reservas', loadChildren: () => import('./pages/home/reservas/reservas.module')
+      .then(m => m.ReservasModule), canActivate: [UserGuardGuard]
   },
   {
     path: '**', redirectTo: 'home', pathMatch: 'full'

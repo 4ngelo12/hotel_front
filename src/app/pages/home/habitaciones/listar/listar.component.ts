@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { PaginationInstance } from 'ngx-pagination';
 import { HabitacionesService } from 'src/app/services/habitaciones.service';
+import { Content } from '../interfaces/IHabitaciones';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listar',
@@ -11,11 +13,16 @@ import { HabitacionesService } from 'src/app/services/habitaciones.service';
 export class ListarComponent implements OnInit {
 
   public page!: number;
+  contenido: Content[] = [];
 
-  constructor(private habitacionService: HabitacionesService) { }
+  constructor(private habitacionService: HabitacionesService, private router: Router) { }
 
   ngOnInit(): void {
     this.habitacionService.getHabitaciones();
+  }
+
+  realizarReserva(id: number) {
+    this.router.navigate(['/home/reservas/crear', id]);
   }
 
   get habitaciones() {

@@ -20,7 +20,6 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     if (this.token) {
       this.isTrue = true;
-      console.log(this.isTrue);
     }
   }
 
