@@ -49,6 +49,11 @@ body {
   width: 100%;
 }
 
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
 a {
   text-decoration: none;
   color: #000;
@@ -133,6 +138,15 @@ h3 {
 
 .btn-text {
   padding: 0 3.5rem;
+}
+
+.enlace-login {
+  color: #00619a;
+}
+
+.enlace-login:hover {
+  color: #002d95;
+  text-decoration: underline;
 }
 
 /*Registrar*/
@@ -367,8 +381,49 @@ h3 {
 
 /*Reservas*/
 
+.registrar-reserva {
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .registrar-reserva {
+    flex-direction: row;
+  }
+}
+
 datos-titulos {
   display: flex;
   flex-direction: column;
   gap: 0;
+}
+
+.formulario-registrar-reserva {
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  background-color: #79c8ff;
+}
+
+@media (min-width: 768px) {
+  .formulario-registrar-reserva {
+    margin: 0 2rem;
+  }
+}
+
+.form-registrar-reserva {
+  margin: 2rem 0;
+  width: 18rem;
+}
+
+.btn-text-reserva {
+  padding: 0 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .btn-text-reserva {
+      padding: 0 3.5rem;
+    }
+}
+
+.input-sep {
+  margin-bottom: 1rem;
 }

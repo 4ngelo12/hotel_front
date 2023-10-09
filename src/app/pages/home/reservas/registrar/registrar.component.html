@@ -1,30 +1,74 @@
-<div>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>Número de habitación: {{habitacion.numero}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content class="habitacion-texto">
-      <div>
-        <h2>Descripción:</h2>
-        <p>{{habitacion.descripcion}}</p>
-      </div>
-
-      <div>
-        <div class="card-column">
-          <h3>Precio:</h3>
-          <p>{{habitacion.precio}} <mat-icon matSuffix>paid</mat-icon></p>
+<div class="flex-column registrar-reserva">
+  <div>
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>Número de habitación: {{habitacion.numero}}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content class="habitacion-texto">
+        <div>
+          <h2>Descripción:</h2>
+          <p>{{habitacion.descripcion}}</p>
         </div>
 
-        <div class="card-column">
-          <h3>Número de Camas:</h3>
-          <p>{{habitacion.numCamas}} <mat-icon matSuffix>bed</mat-icon></p>
-        </div>
+        <div>
+          <div class="card-column">
+            <h3>Precio:</h3>
+            <p><mat-icon matSuffix>paid</mat-icon> {{habitacion.precio}}</p>
+          </div>
 
-        <div class="card-column">
-          <h3>Tipo de Habitación:</h3>
-          <p>{{habitacion.tipoHabitacion}} <mat-icon matSuffix>room_service</mat-icon></p>
+          <div class="card-column">
+            <h3>Número de Camas:</h3>
+            <p><mat-icon matSuffix>bed</mat-icon> {{habitacion.numCamas}}</p>
+          </div>
+
+          <div class="card-column">
+            <h3>Tipo de Habitación:</h3>
+            <p><mat-icon matSuffix>room_service</mat-icon> {{habitacion.tipoHabitacion}}</p>
+          </div>
         </div>
-      </div>
-    </mat-card-content>
-  </mat-card>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <form (ngSubmit)="reservar()" class="formulario formulario-registrar-reserva card">
+    <legend class="formulario-legend">
+      Registrar para la reserva
+    </legend>
+
+    <hr>
+
+    <div class="form-registrar-reserva">
+      <mat-form-field class="input input-sep">
+        <mat-label>Fecha de ingreso:</mat-label>
+        <input matInput [matDatepicker]="entrada" name="checkIn" [(ngModel)]="reserva.checkIn">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="entrada"></mat-datepicker-toggle>
+        <mat-datepicker #entrada></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="input input-sep">
+        <mat-label>Fecha de salida:</mat-label>
+        <input matInput [matDatepicker]="salida" name="checkOut" [(ngModel)]="reserva.checkOut">
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="salida"></mat-datepicker-toggle>
+        <mat-datepicker #salida></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field class="input input-sep">
+        <mat-label>Tipo de Pago</mat-label>
+        <mat-select required name="tipoPagoId" [(ngModel)]="reserva.tipoPagoId">
+          <mat-option *ngFor="let i of tiposPago" [value]="i.value">
+            {{i.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+    <div class="btn-form">
+      <button mat-raised-button color="primary">
+        <mat-icon>check_circle</mat-icon>
+        <span class="btn-text-reserva">Reservar Habitación</span>
+      </button>
+    </div>
+  </form>
 </div>
