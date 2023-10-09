@@ -11,27 +11,15 @@ import { Habitacion } from '../../habitaciones/interfaces/IHabitaciones';
 export class RegistrarComponent implements OnInit {
 
   parametro?: string;
-  habitacionData: Habitacion = {
-    id: 0,
-    numero: 0,
-    disponible: false,
-    descripcion: '',
-    numCamas: 0,
-    precio: 0,
-    idTipoHabitacion: 0
-  };
 
   constructor(private habitacionService: HabitacionesService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.parametro = this.route.snapshot.paramMap.get('parametro')!;
-    console.log(this.parametro);
-    this.habitacionData = this.habitacion(Number(this.parametro));
+    this.habitacionService.getHabitacion(Number(this.parametro));
   }
 
-  habitacion(number: number) {
-    this.habitacionService.getHabitacion(number);
-    return this.habitacionService.habitacion;
+  get habitacion() {
+    return JSON.parse(localStorage.getItem('habitacion')!);
   }
-
 }

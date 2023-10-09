@@ -16,7 +16,6 @@ export class HabitacionesService {
   constructor(private http: HttpClient) { }
 
   getHabitaciones() {
-    //return this.http.get(`${baserUrl}/habitaciones`);
     this.http.get<Habitaciones>(`${baserUrl}/habitaciones`)
       .subscribe(response => {
         this.resultados = response.content;
@@ -26,11 +25,10 @@ export class HabitacionesService {
   }
 
   getHabitacion(id: number) {
-    //return this.http.get(`${baserUrl}/habitaciones/${id}`);
     this.http.get<Habitacion>(`${baserUrl}/habitaciones/${id}`)
       .subscribe(response => {
         this.habitacion = response;
-        console.log(this.habitacion);
+        localStorage.setItem('habitacion', JSON.stringify(this.habitacion));
       });
   }
 }

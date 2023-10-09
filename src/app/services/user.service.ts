@@ -42,6 +42,7 @@ export class UserService {
   public logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('habitacion');
     return true;
   }
 

@@ -20,6 +20,7 @@ export interface Content {
   numCamas: number;
   precio: number;
   tipoHabitacionId: number;
+  tipoHabitacion: string
 }
 
 export interface Pageable {
@@ -38,13 +39,13 @@ export interface Sort {
 }
 
 export interface Habitacion {
-  id:               number;
-  numero:           number;
-  disponible:       boolean;
-  descripcion:      string;
-  numCamas:         number;
-  precio:           number;
-  idTipoHabitacion: number;
+  id: number;
+  numero: number;
+  disponible: boolean;
+  descripcion: string;
+  numCamas: number;
+  precio: number;
+  tipoHabitacion: string;
 }
 
 

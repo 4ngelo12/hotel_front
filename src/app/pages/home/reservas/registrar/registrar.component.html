@@ -1,7 +1,30 @@
 <div>
-  <p>{{habitacionData.numero}}</p>
-  <p>{{habitacionData.descripcion}}</p>
-  <p>{{habitacionData.numCamas}}</p>
-  <p>{{habitacionData.precio}}</p>
-  <p>{{habitacionData.id}}</p>
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>Número de habitación: {{habitacion.numero}}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="habitacion-texto">
+      <div>
+        <h2>Descripción:</h2>
+        <p>{{habitacion.descripcion}}</p>
+      </div>
+
+      <div>
+        <div class="card-column">
+          <h3>Precio:</h3>
+          <p>{{habitacion.precio}} <mat-icon matSuffix>paid</mat-icon></p>
+        </div>
+
+        <div class="card-column">
+          <h3>Número de Camas:</h3>
+          <p>{{habitacion.numCamas}} <mat-icon matSuffix>bed</mat-icon></p>
+        </div>
+
+        <div class="card-column">
+          <h3>Tipo de Habitación:</h3>
+          <p>{{habitacion.tipoHabitacion}} <mat-icon matSuffix>room_service</mat-icon></p>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>

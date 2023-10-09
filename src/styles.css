@@ -54,6 +54,10 @@ a {
   color: #000;
 }
 
+h3 {
+  margin: 0;
+}
+
 /*Formulario*/
 
 .contenedor-form-registro {
@@ -153,12 +157,6 @@ a {
 
 .bg-img {
   background-color: #0d6efd;
-}
-
-.f {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
 }
 
 .contenedor-img {
@@ -298,8 +296,10 @@ a {
 
 /*Habitaciones*/
 
-.habitacion-screen {
-  height: 85vh;
+@media (min-width: 992px) {
+  .habitacion-screen {
+    height: 85vh;
+  }
 }
 
 .habitaciones-titulo {
@@ -334,7 +334,7 @@ a {
   margin: 1rem 0 0 1rem;
 }
 
-.habitacion-texto p {
+.cortar-texto p {
   display: -webkit-box;
   overflow: hidden;
   -webkit-line-clamp: 3;
@@ -346,7 +346,7 @@ a {
   gap: 2rem;
 }
 
-.habitacion-datos p {
+.card-column p {
   display: flex;
   align-items: center;
   gap: 0.625rem;
@@ -362,4 +362,13 @@ a {
 
 .btn-habitacion span {
   padding: 1rem;
+}
+
+
+/*Reservas*/
+
+datos-titulos {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
 }

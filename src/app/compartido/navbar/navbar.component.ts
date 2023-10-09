@@ -8,8 +8,7 @@ import { UserService } from 'src/app/services/user.service';
 })
 export class NavbarComponent implements OnInit {
 
-  isTrue?: boolean;
-  token = localStorage.getItem('token');
+  isTrue: boolean = false;
   constructor(private userService : UserService) { }
 
   public logout(){
@@ -18,9 +17,8 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (this.token) {
-      this.isTrue = true;
-    }
+    this.isTrue = this.userService.isLoggedIn();
+    console.log(this.isTrue);
   }
 
 }
