@@ -54,6 +54,8 @@ body {
   flex-direction: column;
 }
 
+/*Globales*/
+
 a {
   text-decoration: none;
   color: #000;
@@ -62,6 +64,13 @@ a {
 h3 {
   margin: 0;
 }
+
+@media (min-width: 768px) {
+    table {
+      width: 100%;
+    }
+}
+
 
 /*Formulario*/
 

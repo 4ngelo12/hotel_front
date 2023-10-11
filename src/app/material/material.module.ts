@@ -18,6 +18,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatMenuModule } from '@angular/material/menu';
 import {MatDividerModule} from '@angular/material/divider';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatSidenavModule,
     MatMenuModule,
     MatDividerModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatTableModule
   ]
 })
 export class MaterialModule { }

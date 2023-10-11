@@ -15,7 +15,7 @@ export class HabitacionesService {
 
   constructor(private http: HttpClient) { }
 
-  getHabitaciones() {
+  public getHabitaciones() {
     this.http.get<Habitaciones>(`${baserUrl}/habitaciones`)
       .subscribe(response => {
         this.resultados = response.content;
@@ -24,7 +24,7 @@ export class HabitacionesService {
       });
   }
 
-  getHabitacion(id: number) {
+  public getHabitacion(id: number) {
     this.http.get<Habitacion>(`${baserUrl}/habitaciones/${id}`)
       .subscribe(response => {
         this.habitacion = response;
