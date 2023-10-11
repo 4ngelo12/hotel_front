@@ -53,7 +53,10 @@ export class LoginComponent implements OnInit {
               console.log('HUESPED');
             }
 
-            this.router.navigate(['/home']);
+            this.router.navigate(['/home']).then(() => {
+              window.location.reload();
+            });
+
           }
         );
         //this.router.navigate(['/habitaciones']);

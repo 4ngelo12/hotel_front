@@ -10,9 +10,10 @@ import { Respuesta } from '../Interfaces/ReservaRespuesta';
 })
 export class ListarComponent implements OnInit {
 
+  public page!: number;
   displayedColumns: string[] = ['codReserva', 'checkIn', 'checkOut', 'total', 'habitacion', 'tipoPago'];
-
   idUsuario = JSON.stringify(localStorage.getItem('user')).split(':')[1].split(',')[0].replace(/['"]+/g, '');
+
   constructor(private reservaService: ReservasService) { }
 
   ngOnInit(): void {
