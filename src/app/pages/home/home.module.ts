@@ -5,6 +5,7 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { UserService } from 'src/app/services/user.service';
 import { HabitacionesRoutingModule } from './habitaciones/habitaciones-routing.module';
 import { HabitacionesModule } from './habitaciones/habitaciones.module';
+import { UsuariosModule } from '../usuarios/usuarios.module';
 
 
 
@@ -16,10 +17,11 @@ import { HabitacionesModule } from './habitaciones/habitaciones.module';
     CommonModule,
     MaterialModule,
     HabitacionesModule,
-    HabitacionesRoutingModule
+    HabitacionesRoutingModule,
+    UsuariosModule
   ],
   exports: [
-    PrincipalComponent
+    PrincipalComponent,
   ],
   providers: [
     UserService

@@ -1,0 +1,16 @@
+<mat-card class="principal-sep">
+  <mat-card-header>
+    <mat-card-title>Bienvenido/a</mat-card-title>
+  </mat-card-header>
+
+  <mat-card-content class="habitacion-texto">
+    {{usuario.nombre}} {{usuario.apellido}}
+  </mat-card-content>
+
+  <mat-divider></mat-divider>
+
+  <div class="principal-btn">
+    <button mat-raised-button color="primary" routerLink="/home/usuario">Editar Datos</button>
+  </div>
+</mat-card>
+

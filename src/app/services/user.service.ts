@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baserUrl from './helper';
-import { IUsuario } from '../pages/usuarios/interfaces/IUsuario';
+import { IUsuario, IUsuarioEdit } from '../pages/usuarios/interfaces/IUsuario';
 import { ILogin } from '../pages/usuarios/interfaces/ILogin';
 
 @Injectable({
@@ -17,6 +17,10 @@ export class UserService {
 
   public login(user: ILogin) {
     return this.http.post(`${baserUrl}/auth/login`, user);
+  }
+
+  public updateUser(user: IUsuarioEdit) {
+    return this.http.put(`${baserUrl}/user`, user);
   }
 
   //iniciamos sesión y establecemos el token en el localStorage
@@ -62,6 +66,6 @@ export class UserService {
 
   public getUserRole() {
     let user = this.getUser();
-    return user.authorities[0].authority;
+    return user.role;
   }
 }

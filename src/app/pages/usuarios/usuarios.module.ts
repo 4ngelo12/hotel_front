@@ -6,13 +6,15 @@ import { MaterialModule } from 'src/app/material/material.module';
 import { UserService } from 'src/app/services/user.service';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AppRouterModule } from 'src/app/app-router.module';
+import { PerfilComponent } from './perfil/perfil.component';
 
 
 
 @NgModule({
   declarations: [
     SingupComponent,
-    LoginComponent
+    LoginComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule,

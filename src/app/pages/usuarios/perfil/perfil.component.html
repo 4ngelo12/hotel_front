@@ -1,0 +1,72 @@
+<div>
+  <form [formGroup]="formulario" (ngSubmit)="guardarCambios()" class="formulario formulario-registro">
+    <legend class="formulario-legend">
+      Modificar sus Datos
+    </legend>
+
+    <div class="formulario-inputs">
+      <mat-form-field class="input">
+        <mat-label>Nombre:</mat-label>
+        <input required matInput type="text" name="nombre" formControlName="nombre" placeholder="Ejm. Miguel">
+        <mat-error>
+          Ingresa un valor correcto para el nombre
+        </mat-error>
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="input">
+        <mat-label>Apellido:</mat-label>
+        <input required matInput type="text" name="apellido" formControlName="apellido" placeholder="Ejm. Castillo">
+        <mat-error>
+          Ingresa un valor correcto para el apellido
+        </mat-error>
+        <mat-icon matSuffix>person</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="input">
+        <mat-label>Fecha de Nacimiento:</mat-label>
+        <input matInput [matDatepicker]="picker" name="fechaNacimiento" formControlName="fechaNacimiento">
+        <mat-error>
+          La fecha no es valida
+        </mat-error>
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Tipo Documento</mat-label>
+        <mat-select required name="tipoDocumento"formControlName="tipoDocumento">
+          <mat-option *ngFor="let i of tipoDocumento" [value]="i.value">
+            {{i.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Núm de Documento:</mat-label>
+        <input required matInput type="number" name="documento" formControlName="documento" min="1"
+          placeholder="Ejm. 987456321452">
+        <mat-icon matSuffix>badge</mat-icon>
+      </mat-form-field>
+
+      <mat-form-field class="input">
+        <mat-label>Núm Télefono:</mat-label>
+        <input required matInput type="tel" name="telefono" formControlName="telefono" placeholder="Ejm. 987456312">
+        <mat-icon matSuffix>contact_phone</mat-icon>
+      </mat-form-field>
+
+      <div class="btn-form">
+        <button mat-raised-button color="primary">
+          <mat-icon>edit</mat-icon>
+          <span class="btn-text">Modificar datos</span>
+        </button>
+
+        <button type="button" mat-raised-button color="warn" [routerLink]="['/']" routerLinkActive="router-link-active">
+          <mat-icon>arrow_back</mat-icon>
+          <span class="btn-text">Regresar</span>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

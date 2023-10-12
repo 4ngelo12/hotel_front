@@ -9,3 +9,13 @@ export interface IUsuario {
   idRole: number;
   password: string;
 }
+
+export interface IUsuarioEdit {
+  id: number;
+  nombre: string;
+  apellido: string;
+  fechaNacimiento: Date;
+  tipoDocumento: string;
+  documento: string;
+  telefono: string;
+}

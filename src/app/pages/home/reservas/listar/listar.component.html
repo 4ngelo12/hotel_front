@@ -1,3 +1,5 @@
+<h1>Reservas realizadas</h1>
+
 <table mat-table [dataSource]="reservas | paginate: { itemsPerPage: 8, currentPage: page}" class="mat-elevation-z8">
   <ng-container matColumnDef="codReserva">
     <th mat-header-cell *matHeaderCellDef> Código de Reserva </th>

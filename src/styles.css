@@ -71,6 +71,27 @@ h3 {
     }
 }
 
+/*Principal*/
+@media (min-width: 992px) {
+  .principal-sep {
+    margin-right: 1.8rem;
+  }
+}
+
+.principal-btn {
+  margin-top: 2rem;
+  margin-left: 1rem;
+}
+
+.principal-btn button{
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .principal-btn button{
+    width: auto;
+  }
+}
 
 /*Formulario*/
 
