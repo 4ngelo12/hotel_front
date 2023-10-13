@@ -21,6 +21,10 @@ export class UserService {
     return this.http.post(`${baserUrl}/auth/login`, user);
   }
 
+  public getCurrentUser() {
+    return this.http.get(`${baserUrl}/user`);
+  }
+
   public updateUser(user: IUsuarioEdit) {
     return this.http.put(`${baserUrl}/user`, user);
   }
@@ -29,10 +33,6 @@ export class UserService {
   public loginUser(token: any) {
     localStorage.setItem('token', token);
     return true;
-  }
-
-  public getCurrentUser() {
-    return this.http.get(`${baserUrl}/auth/usuario`);
   }
 
   //cerranis sesion y eliminamos el token del localStorage

@@ -7,7 +7,7 @@
       </div>
 
       <div class="contenedor-form-registro">
-        <form (ngSubmit)="formSubmit()" class="formulario formulario-registro">
+        <form [formGroup]="formulario" (ngSubmit)="formSubmit()" class="formulario formulario-registro">
           <legend class="formulario-legend">
             Registrar sus Datos
           </legend>
@@ -15,28 +15,43 @@
           <div class="formulario-inputs">
             <mat-form-field class="input">
               <mat-label>Nombre:</mat-label>
-              <input required matInput type="text" name="nombre" [(ngModel)]="usuario.nombre" placeholder="Ejm. Miguel">
+              <input required matInput type="text" name="nombre" formControlName="nombre" placeholder="Ejm. Miguel">
+              <mat-error *ngIf="formulario.get('nombre')!.hasError('required')">
+                El nombre es obligatorio
+              </mat-error>
               <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
 
             <mat-form-field class="input">
               <mat-label>Apellido:</mat-label>
-              <input required matInput type="text" name="apellido" [(ngModel)]="usuario.apellido"
+              <input required matInput type="text" name="apellido" formControlName="apellido"
                 placeholder="Ejm. Castillo">
+              <mat-error *ngIf="formulario.get('apellido')!.hasError('required')">
+                El apellido es obligatorio
+              </mat-error>
               <mat-icon matSuffix>person</mat-icon>
             </mat-form-field>
 
             <mat-form-field class="input">
               <mat-label>Email:</mat-label>
-              <input required matInput name="email" [(ngModel)]="usuario.email" type="email"
+              <input required matInput name="email" formControlName="email" type="email"
                 placeholder="Ejm. pat@example.com">
+              <mat-error *ngIf="formulario.get('email')!.hasError('required')">
+                El correo es obligatorio
+              </mat-error>
+              <mat-error *ngIf="formulario.get('email')!.hasError('email')">
+                El correo es invalido
+              </mat-error>
               <mat-hint>El correo debe ser único</mat-hint>
               <mat-icon matSuffix>mail</mat-icon>
             </mat-form-field>
 
             <mat-form-field class="input">
               <mat-label>Fecha de Nacimiento:</mat-label>
-              <input matInput [matDatepicker]="picker" name="fechaNacimiento" [(ngModel)]="usuario.fechaNacimiento">
+              <input matInput [matDatepicker]="picker" name="fechaNacimiento" formControlName="fechaNacimiento">
+              <mat-error *ngIf="formulario.get('fechaNacimiento')!.hasError('required')">
+                El campo es obligatorio
+              </mat-error>
               <mat-hint>MM/DD/YYYY</mat-hint>
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
@@ -44,37 +59,63 @@
 
             <mat-form-field>
               <mat-label>Tipo Documento</mat-label>
-              <mat-select required name="tipoDocumento" [(ngModel)]="usuario.tipoDocumento">
+              <mat-select required name="tipoDocumento" formControlName="tipoDocumento">
                 <mat-option *ngFor="let i of tipoDocumento" [value]="i.value">
                   {{i.name}}
                 </mat-option>
               </mat-select>
+              <mat-error *ngIf="formulario.get('tipoDocumento')!.hasError('required')">
+                Debes seleccionar un tipo de documento
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field>
               <mat-label>Núm de Documento:</mat-label>
-              <input required matInput type="number" name="documento" [(ngModel)]="usuario.documento" min="1"
+              <input required matInput type="number" name="documento" min="1" formControlName="documento"
                 placeholder="Ejm. 987456321452">
+              <mat-error *ngIf="formulario.get('documento')!.hasError('required')">
+                El número de documento es obligatorio
+              </mat-error>
               <mat-icon matSuffix>badge</mat-icon>
             </mat-form-field>
 
             <mat-form-field class="input">
               <mat-label>Núm Télefono:</mat-label>
-              <input required matInput type="tel" name="telefono" [(ngModel)]="usuario.telefono"
+              <input required matInput type="tel" name="telefono" formControlName="telefono"
                 placeholder="Ejm. 987456312">
+              <mat-error *ngIf="formulario.get('telefono')!.hasError('required')">
+                El número de télefono es obligatorio
+              </mat-error>
+              <mat-error *ngIf="formulario.get('telefono')!.hasError('minLength') ||
+                formulario.get('telefono')!.hasError('maxLength')">
+                El número solo puede tener 9 dígitos
+              </mat-error>
               <mat-icon matSuffix>contact_phone</mat-icon>
             </mat-form-field>
 
             <mat-form-field>
               <mat-label>Contraseña:</mat-label>
-              <input required matInput type="password" name="password" [(ngModel)]="usuario.password"
+              <input required matInput type="password" name="password" formControlName="password"
                 placeholder="*********">
+              <mat-error *ngIf="formulario.get('password')!.hasError('required')">
+                La contraseña es obligatoria
+              </mat-error>
+              <mat-error *ngIf="formulario.get('password')!.hasError('minLength')">
+                La contraseña debe ser de al menos 8 caracteres
+              </mat-error>
               <mat-icon matSuffix>password</mat-icon>
             </mat-form-field>
 
             <mat-form-field>
               <mat-label>Repetir Contraseña:</mat-label>
-              <input required matInput type="password" placeholder="*********">
+              <input required matInput type="password" name="password2" formControlName="confirmPassword"
+                placeholder="*********">
+              <mat-error *ngIf="formulario.get('confirmPassword')!.hasError('required')">
+                La contraseña es obligatoria
+              </mat-error>
+              <mat-error *ngIf="formulario.get('confirmPassword')!.hasError('minLength')">
+                La contraseña debe ser de al menos 8 caracteres
+              </mat-error>
               <mat-icon matSuffix>password</mat-icon>
             </mat-form-field>
           </div>

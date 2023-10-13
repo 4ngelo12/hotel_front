@@ -30,6 +30,7 @@ export class PerfilComponent implements OnInit {
       tipoDocumento: [this.usuarioActual.tipoDocumento, Validators.required],
       documento: [this.usuarioActual.documento, Validators.required],
       telefono: [this.usuarioActual.telefono, Validators.required],
+      role: [this.usuarioActual.role, Validators.required],
     });
   }
 

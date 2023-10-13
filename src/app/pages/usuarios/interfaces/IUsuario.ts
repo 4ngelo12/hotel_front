@@ -18,4 +18,5 @@ export interface IUsuarioEdit {
   tipoDocumento: string;
   documento: string;
   telefono: string;
+  role: string;
 }
