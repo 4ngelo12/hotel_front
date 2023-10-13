@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import baserUrl from './helper';
 import { IUsuario, IUsuarioEdit } from '../pages/usuarios/interfaces/IUsuario';
 import { ILogin } from '../pages/usuarios/interfaces/ILogin';
+import { JwtHelperService } from "@auth0/angular-jwt";
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -33,15 +35,6 @@ export class UserService {
     return this.http.get(`${baserUrl}/auth/usuario`);
   }
 
-  public isLoggedIn() {
-    let tokenStr = localStorage.getItem('token');
-    if (tokenStr == undefined || tokenStr == '' || tokenStr == null) {
-      return false;
-    } else {
-      return true;
-    }
-  }
-
   //cerranis sesion y eliminamos el token del localStorage
   public logout() {
     localStorage.removeItem('token');
@@ -68,4 +61,37 @@ export class UserService {
     let user = this.getUser();
     return user.role;
   }
+
+  private loggedIn = new BehaviorSubject(false);
+
+  validateToken(): boolean {
+    const token = localStorage.getItem('token');
+
+    if (!token) {
+      this.loggedIn.next(false);
+      return false;
+    }
+
+    try {
+      const helper = new JwtHelperService();
+      const decodedToken = helper.decodeToken(token);
+      if (helper.isTokenExpired(token)) {
+        this.loggedIn.next(false);
+        localStorage.clear();
+        return false;
+      }
+      if (!decodedToken) {
+        localStorage.clear();
+        this.loggedIn.next(false);
+        return false;
+      }
+    } catch (error) {
+      localStorage.removeItem('token');
+      this.loggedIn.next(false);
+      return false;
+    }
+    this.loggedIn.next(true);
+    return true;
+  }
 }
+
